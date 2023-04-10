@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="#" th:action="@{/guardar}" th:object="${jugador}" method="post">
+   <div>
+       <label for="nombre">Nombre Completo</label>
+       <input type="text" th:field="*{nombreCompleto}" id="nombre">
+   </div>
+    <div>
+        <label for="posicion">Posición</label>
+        <input type="text" th:field="*{posicion}" id="posicion">
+    </div>
+    <div>
+        <label for="piernaDominante">Pierna dominante</label>
+        <input type="text" th:field="*{piernaDominante}" id="piernaDominante">
+    </div>
+   <div>
+       <label for="fechaNacimiento">Fecha Nacimiento</label>
+       <input type="date" th:field="*{fechaNacimiento}" id="fechaNacimiento">
+   </div>
+    <div>
+        <label for="estatura">Estatura en cms</label>
+        <input step="any" type="number" th:field="*{estatura}" id="estatura">
+    </div>
+    <div>
+        <label for="peso">Peso</label>
+        <input step="any" type="number" th:field="*{peso}" id="peso">
+    </div>
+    <div>
+        <span>Estado:</span>
+        <p>
+            <label>Activo
+                <input name="estado" type="radio" th:field="*{estado}" value=true />
+            </label>
+            <label>Inactivo
+                <input name="estado" type="radio" th:field="*{estado}" value=false />
+            </label>
+        </p>
+    </div>
+
+    <input type="submit" value="Agregar Jugador">
+</form>
+</body>
+</html>

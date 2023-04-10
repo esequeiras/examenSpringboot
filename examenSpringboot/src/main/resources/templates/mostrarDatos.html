@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Datos persona</title>
+</head>
+<body>
+<h1>Informacion</h1>
+<form action="#" th:action="@{/modificarJugador/{id}(id=${jugador.getId()})}" th:object="${jugador}" method="post">
+
+  <div th:each="jugador : ${datos}">
+    <p th:text="${jugador.nombreCompleto}" th:data="*{nombreCompleto}" ></p>
+    <p th:text="${'Posicion:'+jugador.posicion}" th:field="*{posicion}"></p>
+    <p th:text=" ${'Pierna dominante: '+jugador.piernaDominante}" th:field="*{piernaDominante}"></p>
+    <p th:text="${'Fecha Nacimiento: '+jugador.fechaNacimiento}" th:field="*{fechaNacimiento}"></p>
+    <p th:text="${'Estatura: '+jugador.estatura}" th:field="*{estatura}"></p>
+    <p th:text="${'Peso: '+jugador.peso}" th:field="*{peso}"></p>
+    <p th:text="${'Estado: '+jugador.estado}" th:field="*{estado}"></p>
+
+
+
+
+
+
+  <div th:switch="${jugador.estado}">
+
+    <p>
+      <span>Estado:     </span>
+      <label th:case="true">Activo
+        <input  name="estado" type="radio"  th:field="*{estado}" value=true checked/>
+        Inactivo
+        <input name="estado" type="radio" th:field="*{estado}" value=false />
+
+      </label>
+      <label th:case="*"> Activo
+        <input name="estado" type="radio" th:field="*{estado}" value=true  />
+        Inactivo
+        <input  name="estado" type="radio" th:field="*{estado}" value=false checked/>
+
+      </label>
+    </p>
+  </div>
+</div>
+  <input type="submit" value="modificar estado">
+  </form>
+
+<p><a href="/">volver al inicio</a></p>
+</body>
+</html>

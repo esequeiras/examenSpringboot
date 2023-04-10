@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de jugadores</title>
+</head>
+<body>
+<h1>Listado</h1>
+<p> <a th:href="@{/listarSegunEstado/{estado}(estado= ${true})}">Ver solo activos</a></p>
+<p> <a th:href="@{/listarSegunEstado/{estado}(estado= ${false})}">Ver solo inactivos</a></p>
+<div th:each="jugador: ${jugadores}">
+    <li th:switch="${jugador.estado}">
+        <span th:text="${jugador.nombreCompleto}"></span>
+
+        <span th:case="true">Estado:Activo</span>
+        <span th:case="*">Estado:Inactivo</span>
+
+        <a th:href="@{/datosJugador/{id}(id= ${jugador.id})}">Ver Datos</a>
+    </li>
+</div>
+
+<p><a href="/">volver al inicio</a></p>
+</body>
+</html>
