@@ -65,7 +65,6 @@ public class JugadorController {
         List<Jugador> jugadoresEstado = new ArrayList<>();
         for (Jugador jug: jugadores) {
             if (jug.isEstado()==estado){
-                System.out.println(jug.getNombreCompleto());
                 jugadoresEstado.add(jug);
             }
         }

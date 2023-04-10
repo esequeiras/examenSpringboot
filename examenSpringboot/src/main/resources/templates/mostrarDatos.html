@@ -9,18 +9,12 @@
 <form action="#" th:action="@{/modificarJugador/{id}(id=${jugador.getId()})}" th:object="${jugador}" method="post">
 
   <div th:each="jugador : ${datos}">
-    <p th:text="${jugador.nombreCompleto}" th:data="*{nombreCompleto}" ></p>
-    <p th:text="${'Posicion:'+jugador.posicion}" th:field="*{posicion}"></p>
-    <p th:text=" ${'Pierna dominante: '+jugador.piernaDominante}" th:field="*{piernaDominante}"></p>
-    <p th:text="${'Fecha Nacimiento: '+jugador.fechaNacimiento}" th:field="*{fechaNacimiento}"></p>
-    <p th:text="${'Estatura: '+jugador.estatura}" th:field="*{estatura}"></p>
-    <p th:text="${'Peso: '+jugador.peso}" th:field="*{peso}"></p>
-    <p th:text="${'Estado: '+jugador.estado}" th:field="*{estado}"></p>
-
-
-
-
-
+    <p th:text="${jugador.nombreCompleto}" ></p>
+    <p th:text="${'Posicion:'+jugador.posicion}"></p>
+    <p th:text=" ${'Pierna dominante: '+jugador.piernaDominante}"></p>
+    <p th:text="${'Fecha Nacimiento: '+jugador.fechaNacimiento}"></p>
+    <p th:text="${'Estatura: '+jugador.estatura}"></p>
+    <p th:text="${'Peso: '+jugador.peso}" ></p>
 
   <div th:switch="${jugador.estado}">
 

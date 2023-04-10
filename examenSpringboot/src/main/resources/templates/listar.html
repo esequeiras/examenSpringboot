@@ -6,8 +6,10 @@
 </head>
 <body>
 <h1>Listado</h1>
-<p> <a th:href="@{/listarSegunEstado/{estado}(estado= ${true})}">Ver solo activos</a></p>
-<p> <a th:href="@{/listarSegunEstado/{estado}(estado= ${false})}">Ver solo inactivos</a></p>
+<li> <a th:href="@{/listarSegunEstado/{estado}(estado= ${true})}">Ver solo activos</a></li>
+<li> <a th:href="@{/listarSegunEstado/{estado}(estado= ${false})}">Ver solo inactivos</a></li>
+<li> <a th:href="@{/listar}">Ver todos</a></li>
+
 <div th:each="jugador: ${jugadores}">
     <li th:switch="${jugador.estado}">
         <span th:text="${jugador.nombreCompleto}"></span>
